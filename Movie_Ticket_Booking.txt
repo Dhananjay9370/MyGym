@@ -1,0 +1,102 @@
+#include <iostream>
+using namespace std;
+void menu()
+{    
+}
+int main() {
+    
+    cout << "Hello world!";
+    int arr[5][5];
+    
+    for(int i=0;i<5;i++)
+    {
+        for(int j=0;j<5;j++)
+        {
+            arr[i][j]=0;
+        }
+    }
+    int choice,row,column,confirm,ch;
+    while(1)
+    {
+    cout<<"***** MENU *****"<<endl;
+    cout<<"1. Book Your Slot"<<endl;
+    cout<<"2. Cancel Your Slot"<<endl;
+    cout<<"3. See Empty And Alloted Slots"<<endl;
+    cin>>choice;
+    if(choice==1)
+    {   cout<<"**** Select The Row And Columns Between 0-4"<<endl;
+        cout<<"Enter Row number Which you want to select"<<endl;
+        cin>>row;
+        cout<<"Enter Column Number Which You Want To Select"<<endl;
+        cin>>column;
+         if(row > 4 || column >4)
+            {
+                cout<<"Select The Row And Columns Between 0-4"<<endl<<endl;
+            }
+       else  if(arr[row][column]==1)
+        {
+            cout<<"Slot Alloted Book Other Slot"<<endl<<endl;
+            
+        }
+        else
+        {
+            cout<<"Do You Want To Confirm (1/0)"<<endl<<endl;
+            cin>>confirm;
+            if(confirm==1)
+            {
+                arr[row][column]=1;
+                cout<<"Your Slot Has Been Booked Successfully !!!!!!"<<endl<<endl;
+                cout<<"Do you want to Continue to menu (1/0)"<<endl<<endl;
+                cin>>ch;
+                if(ch==0)
+                break;
+            }
+        }
+    }
+    else if(choice==2)
+    {
+        cout<<"Do You Want to cancel your slot(1/0)"<<endl;
+        cin>>ch;
+        if(ch==1)
+        {
+            cout<<"Enter Your Row Number"<<endl;
+            cin>>row;
+            cout<<"Enter Your Column Number"<<endl;
+            cin>>column;
+            if(row > 4 || column >4)
+            {
+                cout<<"Select The Row And Columns Between 0-4"<<endl<<endl;
+            }
+            else if(arr[row][column]==0)
+            {
+                cout<<"*****  Enter valid Seat  *****"<<endl<<endl;
+                
+            }
+            else
+            {
+            arr[row][column]=0;
+            cout<<"Your Slot Has Been Cacelled Successfully!!!!"<<endl;
+            }
+            
+        }
+        else
+        continue;
+        
+    }
+    if(choice==3)
+    {
+        for(int i=0;i<5;i++)
+        {
+            for(int j=0;j<5;j++)
+            {
+                cout<<arr[i][j]<<"     ";
+            }
+            cout<<endl<<endl;
+        }
+    }
+}
+
+    
+    
+    return 0;
+}
